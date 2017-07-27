@@ -6,14 +6,16 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.LinearLayout;
 
 /**
  * TODO: document your custom view class.
  */
-public class MyView extends View { //What the default comments mean is that we need to add the code to the XML document
+public class MyView extends LinearLayout { //What the default comments mean is that we need to add the code to the XML document
     private String mExampleString; // TODO: use a default from R.string...
     private String SeniorName = "Resident_Name"; //Set default value
     private int mExampleColor = Color.RED; // TODO: use a default from R.color...

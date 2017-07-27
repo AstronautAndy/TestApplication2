@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -148,14 +149,22 @@ public class MainActivity extends AppCompatActivity {
                 return null;
             }
         };
-        for(int i=0; i<3; i++){
-            Button newButton = new Button( getApplicationContext() );
-            buttons.add(newButton);
-            buttonLayout.addView(newButton);
-        }
+        RelativeLayout.LayoutParams buttonParams =
+                new RelativeLayout.LayoutParams(
+                        RelativeLayout.LayoutParams.MATCH_PARENT,
+                        RelativeLayout.LayoutParams.WRAP_CONTENT
+                );
+        buttonParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
+        buttonParams.addRule(RelativeLayout.CENTER_VERTICAL);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        buttonLayout = (LinearLayout) findViewById(R.id.lMain);
+        for(int i=0; i<3; i++){
+            Button newButton = new Button( getApplicationContext() );
+            buttons.add(newButton);
+            buttonLayout.addView(newButton,buttonParams);
+        }
     }
 
     public void openScrollActivity(View view){
